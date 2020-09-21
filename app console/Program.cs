@@ -19,6 +19,7 @@ namespace app_console
             Console.WriteLine("Hypo = {0}", resultat);
             */
 
+            /*
             List<int> valeurs = new List<int>();
             Console.WriteLine("Entrez la valeur du côté A");
             valeurs.Add(int.Parse(Console.ReadLine()));
@@ -44,6 +45,25 @@ namespace app_console
             } else
             {
                 Console.WriteLine("Ce triangle n'est pas rectangle");
+            }
+            */
+            for(int nombre1 = 1; nombre1 < 100; nombre1++)
+            {
+                int nombre2 = 1;
+                int divise = 0;
+                while(nombre2 <= 100)
+                {
+                    if(nombre1 % nombre2 == 0)
+                    {
+                        divise++;
+                    }
+                    nombre2++;
+                }
+                if(divise < 3) 
+                {
+                    Console.WriteLine(nombre1);
+                }
+                nombre1++;
             }
 
 
