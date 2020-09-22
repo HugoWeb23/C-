@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 
 namespace app_console
 {
@@ -8,64 +9,50 @@ namespace app_console
     {
         static void Main()
         {
-            /*
-            Console.WriteLine("Entrez la veleur du côté A");
-            String CA = Console.ReadLine();
-            Console.WriteLine("Entrez la veur du côté B");
-            String CB = Console.ReadLine();
-            int A = int.Parse(CA);
-            int B = int.Parse(CB);
-            int resultat = (A * A) + (B * B);
-            Console.WriteLine("Hypo = {0}", resultat);
-            */
+            var number = new Random();
+            int randomNuber = number.Next(0, 100);
+            bool part = false;
+            int essais = 0;
+            int limite = 0;
+            Console.WriteLine("Définir une limite d'essais ? oui / non");
+            String userLimit = Console.ReadLine();
+            if(userLimit == "oui")
+            {
+                Console.WriteLine("Définissez une limite via un nombre ex: 5");
+                userLimit = Console.ReadLine();
+                limite = int.Parse(userLimit);
+            }
+            while (part == false)
+            {
+                if (essais >= limite && limite > 0)
+                {
+                    Console.WriteLine("Perdu! Vous avez dépassé le nombre de tentatives ! ({0})", limite);
+                    break;
 
-            /*
-            List<int> valeurs = new List<int>();
-            Console.WriteLine("Entrez la valeur du côté A");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Entrez la valeur du côté B");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Entrez la valeur du côté C");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            int nombre = 0;
-            foreach(int valeur in valeurs)
-            {
-                if(valeur > nombre)
-                {
-                    nombre = valeur;
                 }
-            }
-            valeurs.Remove(nombre);
-            int nombre1 = valeurs.First();
-            int nombre2 = valeurs.Last();
-            int resultat = (nombre1 * nombre1) + (nombre2 * nombre2);
-            if(nombre * nombre == resultat)
-            {
-                Console.WriteLine("Ce triangle est rectangle");
-            } else
-            {
-                Console.WriteLine("Ce triangle n'est pas rectangle");
-            }
-            */
-            for(int nombre1 = 1; nombre1 < 100; nombre1++)
-            {
-                int nombre2 = 1;
-                int divise = 0;
-                while(nombre2 <= 100)
+                else
                 {
-                    if(nombre1 % nombre2 == 0)
+                    Console.WriteLine("Essayez de trouver le nombre");
+                    String userReponse = Console.ReadLine();
+                    int tentative = int.Parse(userReponse);
+                    if (tentative == randomNuber)
                     {
-                        divise++;
+                        Console.WriteLine("Gangné!, vous avez trouvé le nombre en {0} tentatives", essais);
+                        part = true;
+                        break;
                     }
-                    nombre2++;
+                    else if (tentative < randomNuber)
+                    {
+                        Console.WriteLine("Plus haut!");
+                        essais++;
+                    }
+                    else if (tentative > randomNuber)
+                    {
+                        Console.WriteLine("Plus bas!");
+                        essais++;
+                    }
                 }
-                if(divise < 3) 
-                {
-                    Console.WriteLine(nombre1);
-                }
-                nombre1++;
             }
-
 
 
 
