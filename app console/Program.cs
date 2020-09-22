@@ -34,22 +34,30 @@ namespace app_console
                 {
                     Console.WriteLine("Essayez de trouver le nombre");
                     String userReponse = Console.ReadLine();
-                    int tentative = int.Parse(userReponse);
-                    if (tentative == randomNuber)
+                    int tentative;
+                    if (int.TryParse(userReponse, out tentative) == false)
                     {
-                        Console.WriteLine("Gangné!, vous avez trouvé le nombre en {0} tentatives", essais);
-                        part = true;
-                        break;
+                        Console.WriteLine("Erreur, la valeur saisie n'est pas valide ! Merci de réessayer");
+
                     }
-                    else if (tentative < randomNuber)
+                    else
                     {
-                        Console.WriteLine("Plus haut!");
-                        essais++;
-                    }
-                    else if (tentative > randomNuber)
-                    {
-                        Console.WriteLine("Plus bas!");
-                        essais++;
+                        if (tentative == randomNuber)
+                        {
+                            Console.WriteLine("Gangné!, vous avez trouvé le nombre en {0} tentatives", essais);
+                            part = true;
+                            break;
+                        }
+                        else if (tentative < randomNuber)
+                        {
+                            Console.WriteLine("Plus haut!");
+                            essais++;
+                        }
+                        else if (tentative > randomNuber)
+                        {
+                            Console.WriteLine("Plus bas!");
+                            essais++;
+                        }
                     }
                 }
             }
