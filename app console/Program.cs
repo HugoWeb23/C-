@@ -9,7 +9,7 @@ namespace app_console
         static void Main()
         {
             /*
-            Console.WriteLine("Entrez la veleur du côté A");
+            Console.WriteLine("Entrez la veleur du côté A !");
             String CA = Console.ReadLine();
             Console.WriteLine("Entrez la veur du côté B");
             String CB = Console.ReadLine();
