@@ -50,12 +50,12 @@ namespace app_console
                         }
                         else if (tentative < randomNuber)
                         {
-                            Console.WriteLine("Plus haut!!");
+                            Console.WriteLine("Plus haut !");
                             essais++;
                         }
                         else if (tentative > randomNuber)
                         {
-                            Console.WriteLine("Plus bas que bas");
+                            Console.WriteLine("Plus bas !");
                             essais++;
                         }
                     }
