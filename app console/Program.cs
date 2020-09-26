@@ -55,7 +55,7 @@ namespace app_console
                         }
                         else if (tentative > randomNuber)
                         {
-                            Console.WriteLine("Plus bas!");
+                            Console.WriteLine("Plus bas que bas");
                             essais++;
                         }
                     }
