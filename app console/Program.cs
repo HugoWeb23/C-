@@ -47,7 +47,7 @@ namespace app_console
                 Console.WriteLine("Ce triangle n'est pas rectangle");
             }
             */
-            for(int nombre1 = 1; nombre1 < 100; nombre1++)
+            for(int nombre1 = 2; nombre1 < 100; nombre1++)
             {
                 int nombre2 = 1;
                 int divise = 0;
@@ -63,7 +63,7 @@ namespace app_console
                 {
                     Console.WriteLine(nombre1);
                 }
-                nombre1++;
+              
             }
 
 
