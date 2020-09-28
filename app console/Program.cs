@@ -47,6 +47,8 @@ namespace app_console
                 Console.WriteLine("Ce triangle n'est pas rectangle");
             }
             */
+
+
             for(int nombre1 = 2; nombre1 < 100; nombre1++)
             {
                 int nombre2 = 1;
