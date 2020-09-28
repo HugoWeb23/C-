@@ -20,7 +20,10 @@ namespace app_console
             {
                 Console.WriteLine("Définissez une limite via un nombre ex: 5");
                 userLimit = Console.ReadLine();
-                limite = int.Parse(userLimit);
+                if(int.TryParse(userLimit, out limite) == false)
+                {
+                    Console.WriteLine("Saisie invalide !");
+                }
             }
             while (part == false)
             {
@@ -39,6 +42,9 @@ namespace app_console
                     {
                         Console.WriteLine("Erreur, la valeur saisie n'est pas valide ! Merci de réessayer");
 
+                    } else if(tentative > 100)
+                    {
+                        Console.WriteLine("Vous devez saisir un nombre égal ou inférieur à 100 !");
                     }
                     else
                     {
