@@ -46,7 +46,7 @@ namespace app_console
             {
                 Console.WriteLine("Ce triangle n'est pas rectangle");
             }
-            */
+            
 
 
             for(int nombre1 = 2; nombre1 < 100; nombre1++)
@@ -67,6 +67,36 @@ namespace app_console
                 }
               
             }
+
+            */
+
+            List<int> notes = new List<int>();
+            bool fin = false;
+            while (fin == false)
+            {
+                Console.WriteLine("Veuillez saisir une note, tapez 'fin' pour arrêter");
+                int note = 0;
+                String saisie = Console.ReadLine();
+                if (saisie == "fin")
+                {
+                    fin = true;
+                    break;
+                }
+                if (int.TryParse(saisie, out note) == false)
+                {
+                    Console.WriteLine("Saisie incorrecte !");
+                }
+                notes.Add(note);
+            }
+
+            double total_notes = 0;
+            for (int i = 0; i < notes.Count(); i++)
+            {
+                total_notes += notes[i];
+            }
+            double moyenne = total_notes / notes.Count();
+            Console.WriteLine("La moyenne est : {0}", moyenne);
+
 
 
 
