@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.CompilerServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
@@ -13,93 +14,50 @@ namespace app_console
         static void Main()
         {
             /*
-            Console.WriteLine("Entrez la veleur du côté A !");
-            String CA = Console.ReadLine();
-            Console.WriteLine("Entrez la veur du côté B");
-            String CB = Console.ReadLine();
-            int A = int.Parse(CA);
-            int B = int.Parse(CB);
-            int resultat = (A * A) + (B * B);
-            Console.WriteLine("Hypo = {0}", resultat);
-            */
-
-            /*
-            List<int> valeurs = new List<int>();
-            Console.WriteLine("Entrez la valeur du côté A");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Entrez la valeur du côté B");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            Console.WriteLine("Entrez la valeur du côté C");
-            valeurs.Add(int.Parse(Console.ReadLine()));
-            int nombre = 0;
-            foreach(int valeur in valeurs)
+            float nombre;
+            Console.WriteLine("Veillez saisir un nombre");
+            if(float.TryParse(Console.ReadLine(), out nombre) == true)
             {
-                if(valeur > nombre)
+                if (nombre > 0)
                 {
-                    nombre = valeur;
+                    Console.WriteLine(nombre);
+                } else
+                {
+                    Console.WriteLine("{0}", -nombre);
                 }
-            }
-            valeurs.Remove(nombre);
-            int nombre1 = valeurs.First();
-            int nombre2 = valeurs.Last();
-            int resultat = (nombre1 * nombre1) + (nombre2 * nombre2);
-            if(nombre * nombre == resultat)
-            {
-                Console.WriteLine("Ce triangle est rectangle");
             } else
             {
-                Console.WriteLine("Ce triangle n'est pas rectangle");
+                Console.WriteLine("Saisie incorrecte");
             }
-            
-
-
-            for(int nombre1 = 2; nombre1 < 100; nombre1++)
-            {
-                int nombre2 = 1;
-                int divise = 0;
-                while(nombre2 <= 100)
-                {
-                    if(nombre1 % nombre2 == 0)
-                    {
-                        divise++;
-                    }
-                    nombre2++;
-                }
-                if(divise < 3) 
-                {
-                    Console.WriteLine(nombre1);
-                }
-              
-            }
-
             */
-
-            List<int> notes = new List<int>();
-            bool fin = false;
-            while (fin == false)
+            Console.WriteLine("Veuillez saisir un mot :");
+            String mot = Console.ReadLine();
+            int tailleMot = mot.Length;
+            List<Char> lettresMot = new List<Char>();
+            for(int i = 0; i < tailleMot; i++)
             {
-                Console.WriteLine("Veuillez saisir une note, tapez 'fin' pour arrêter");
-                int note = 0;
-                String saisie = Console.ReadLine();
-                if (saisie == "fin")
+                lettresMot.Add(mot[i]);
+            }
+            int compteur = 1;
+            bool validation = true;
+            foreach (Char lettre in lettresMot)
+            {
+                if (lettre == lettresMot[tailleMot - compteur] == false)
                 {
-                    fin = true;
+                    validation = false;
                     break;
+                    
                 }
-                if (int.TryParse(saisie, out note) == false)
-                {
-                    Console.WriteLine("Saisie incorrecte !");
-                }
-                notes.Add(note);
+           
+                compteur++;
             }
-
-            double total_notes = 0;
-            for (int i = 0; i < notes.Count(); i++)
+            if(validation)
             {
-                total_notes += notes[i];
+                Console.WriteLine("Oui");
+            } else
+            {
+                Console.WriteLine("Non");
             }
-            double moyenne = total_notes / notes.Count();
-            Console.WriteLine("La moyenne est : {0}", moyenne);
 
 
         }
