@@ -33,24 +33,16 @@ namespace app_console
             Console.WriteLine("Veuillez saisir un mot :");
             String mot = Console.ReadLine();
             int tailleMot = mot.Length;
-            List<Char> lettresMot = new List<Char>();
-            for(int i = 0; i < tailleMot; i++)
-            {
-                lettresMot.Add(mot[i]);
-            }
-            int compteur = 1;
             bool validation = true;
-            foreach (Char lettre in lettresMot)
+            for (int i = 1; i <= tailleMot; i++)
             {
-                if (lettre == lettresMot[tailleMot - compteur] == false)
+                if (mot[i - 1] == mot[tailleMot - i] == false)
                 {
                     validation = false;
                     break;
-                    
                 }
-           
-                compteur++;
             }
+           
             if(validation)
             {
                 Console.WriteLine("Oui");
@@ -58,8 +50,6 @@ namespace app_console
             {
                 Console.WriteLine("Non");
             }
-
-
         }
     }
 }
