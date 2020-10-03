@@ -6,5 +6,10 @@ namespace app_console
 {
     class Voiture
     {
+
+        public void Bonjour()
+        {
+            Console.WriteLine("test");
+        }
     }
 }

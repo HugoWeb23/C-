@@ -8,8 +8,9 @@ namespace app_console
     {
         static void Main()
         {
-        
 
+            Voiture voiturehugo = new Voiture();
+            voiturehugo.Bonjour();
 
         }
     }
