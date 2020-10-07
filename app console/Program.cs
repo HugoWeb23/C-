@@ -5,6 +5,7 @@ using System.Reflection.Metadata.Ecma335;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
+using System.Transactions;
 
 namespace app_console
 {
@@ -74,12 +75,13 @@ namespace app_console
 
         static int Somme(int nombre)
         {
-            int resultat = 0;
-            for (int i = nombre; i > 1; i--)
+            int resultat = nombre;
+            for (int i = nombre; i > 0; i--)
             {
-                int tempo = nombre;
-                tempo = tempo + i--;
-                 resultat = resultat + tempo;
+
+                int nombre2 = i--;
+                resultat += nombre2;
+                
 
             }
             return resultat;
